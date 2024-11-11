@@ -16,7 +16,7 @@ const Home = () => {
 		<div className="text-center">
 			<div className="container text-center bg-dark">
 				<div className="row row-cols-lg-7 g-2 g-lg-3">
-					<SecondsCounter time={<span className="fa fa-clock"></span>} />
+					<SecondsCounter time={<span className="fa-regular fa-clock"></span>} />
 					<SecondsCounter time={Math.floor(count / 100000) % 10} />
 					<SecondsCounter time={Math.floor(count / 10000) % 10} />
 					<SecondsCounter time={Math.floor(count / 1000) % 10} />
