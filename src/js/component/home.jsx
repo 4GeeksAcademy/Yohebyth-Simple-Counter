@@ -1,24 +1,31 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import SecondsCounter from "./secondscounter.jsx";
 
-//include images into your bundle
-import rigoImage from "../../img/rigo-baby.jpg";
 
 //create your first component
 const Home = () => {
+	const [count, setCount] = useState(0)
+
+	useEffect(() => {
+		setTimeout(() => {
+			setCount(value => value + 1)
+		}, 1000)
+	},[count])
+
 	return (
 		<div className="text-center">
-			<h1 className="text-center mt-5">Hello Rigo!</h1>
-			<p>
-				<img src={rigoImage} />
-			</p>
-			<a href="#" className="btn btn-success">
-				If you see this green button... bootstrap is working...
-			</a>
-			<p>
-				Made by{" "}
-				<a href="http://www.4geeksacademy.com">4Geeks Academy</a>, with
-				love!
-			</p>
+			<div className="container text-center bg-dark">
+				<div className="row row-cols-lg-7 g-2 g-lg-3">
+					<SecondsCounter time={<span className="fa fa-clock"></span>} />
+					<SecondsCounter time={Math.floor(count / 100000) % 10} />
+					<SecondsCounter time={Math.floor(count / 10000) % 10} />
+					<SecondsCounter time={Math.floor(count / 1000) % 10} />
+					<SecondsCounter time={Math.floor(count / 100) % 10} />
+					<SecondsCounter time={Math.floor(count / 10) % 10} />
+					<SecondsCounter time={Math.floor(count % 10)} />
+				</div>
+			</div>
+			
 		</div>
 	);
 };
