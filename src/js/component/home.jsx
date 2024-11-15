@@ -9,9 +9,10 @@ const Home = () => {
 
 	useEffect(() => {
 		if(run){
-			setTimeout(() => {
-				setCount(value => value + 1)
+			const interval = setInterval(() => {
+				setCount(count + 1)
 			}, 1000)
+			return () => clearInterval(interval);
 		}
 	},[count, run])
 
